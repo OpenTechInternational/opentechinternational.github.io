@@ -11,7 +11,7 @@ Open Tech International is a non-profit organization focused on advancing techno
 - **Dynamic Pages**: Automatically generated pages for initiatives and actions
 - **Interactive Components**: Modern UI components with smooth animations
 - **Accessibility**: Built with accessibility best practices in mind
-- **Newsletter Integration**: Embedded Google Forms for newsletter signup
+- **Google Forms Integration**: Embedded Google Forms for newsletter signup and contact forms
 
 ## Tech Stack
 
@@ -43,13 +43,13 @@ Open Tech International is a non-profit organization focused on advancing techno
 src/
 ├── components/     # Reusable UI components
 │   ├── ActionCard.astro    # Card component for displaying actions
-│   ├── Newsletter.astro    # Newsletter signup form component
-│   └── Report.astro        # Report display component
+│   ├── TeamMember.astro    # Component for displaying team member information
+│   └── Initiative.astro    # Component for displaying initiative information
 ├── content/       # Content collections
 │   ├── actions/   # Action and event content
 │   ├── initiatives/ # Initiative content
 │   ├── pages/     # Static page content
-│   └── team.json  # Team member data
+│   └── sections/  # Reusable content sections
 ├── layouts/       # Page layouts
 │   └── Layout.astro # Main layout component
 ├── pages/         # Route components
@@ -70,49 +70,45 @@ src/
 
 Content is managed through a combination of markdown files and JSON:
 
-- **Actions**: Markdown files in `src/content/actions/` containing:
-  - Title, description, and event details
-  - Event dates and locations
-  - Registration URLs
-  - Virtual event status
-  - Event types and tags
+- **Actions**: Markdown files in `src/content/actions/` contain details about specific activities the organization undertakes. Activities might include:
+  - Events (conferences, workshops, meetings)
+  - Contracts and partnerships
+  - Internship opportunities
+  - Other organizational activities
 
-- **Initiatives**: Markdown files in `src/content/initiatives/` containing:
-  - Initiative descriptions and goals
-  - Status and progress information
-  - Related resources and links
+- **Initiatives**: Markdown files in `src/content/initiatives/` contain details about specific initiatives the organization undertakes. These are strategic goals and programs, which contain long-term objectives and missions. Initiatives guide and inform the actions we undertake
 
-- **Pages**: Markdown files in `src/content/pages/` for static content:
+- **Pages**: Markdown files in `src/content/pages/` contain static content for key site sections, such as:
   - About page content
   - Contact information
   - Donation details
   - Volunteer opportunities
+These are standalone pages with fixed content
 
-- **Team**: JSON file at `src/content/team.json` containing:
+- **Sections**: Markdown files in `src/content/sections/` contain reusable content blocks, which can be reused throughout the website:
+  - Mission statements
+  - Get involved sections
   - Team member information
-  - Roles and bios
-  - Profile images
-  - Social media links
+  - Other content that may appear in multiple places
+These sections can be included in various pages to maintain consistency.
+
+These markdown files are embedded in .astro files, which contain the html. 
+
+### How to Add Content (most common)
+#### Actions
+To add an action:
+- Put a markdown file in `src/content/actions`. You will need to include the proper headers, so one of the existing action md files as a template.
+- The action summary will automatically appear on the list of actions, and you will see the md content when you click on the title.
+
+#### Team
+To add a team member:
+- Add another team member into the array found in the .json file found at `src/content/team/members.json`.
+- Add the team members picture into `public/team` and ensure the `image` field in your new team members is set to the name of the image.
+- The team member will automatically appear on the team section of the about page.
 
 ## Development
 
-This project was developed using Cursor, an AI-powered IDE that provided:
-- Intelligent code suggestions
-- Real-time error detection
-- Automated refactoring
-- Component generation
-- Style optimization
-
-The AI agent assisted with:
-- Component architecture and implementation
-- Responsive design implementation
-- Content structure optimization
-- Performance improvements
-- Accessibility enhancements
-- Dynamic routing setup
-- Form integration
-- Image optimization
-- Navigation structure
+This project was initially developed using Cursor, an AI-powered IDE.
 
 ## License
 

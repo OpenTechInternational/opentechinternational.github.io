@@ -4,7 +4,7 @@ description: Connecting utilities in sub-Saharan Africa with the tools they need
 status: active
 image: /images/oti-water-hero.png
 logo: /images/oti-water-logo-white.svg
-date: 2024-03-20
+date: 2025-04-07
 ---
 # Bridging the Digital Divide in Water and Sanitation Management
 
