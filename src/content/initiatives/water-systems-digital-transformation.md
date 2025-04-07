@@ -23,7 +23,7 @@ When digital interventions do occur, they're typically one-off projects that are
 
 ## Our Vision
 
-At OpenTech International, we envision a world where water and sanitation utilities across all regions have access to the digital tools they need to deliver services efficiently. We don't believe the digital divide should exist. Whether through creating new solutions, adapting existing ones, or facilitating access to tools already in the market, our goal is to ensure every utility can benefit from appropriate digital technology.
+At OpenTech International, we envision a world where water and sanitation utilities across all regions have access to the digital tools they need to deliver services efficiently. We don't believe this digital divide should exist, at least not to the extent it currently does. Whether through creating new solutions, adapting existing ones, or facilitating access to tools already in the market, our goal is to ensure every utility can benefit from appropriate digital technology.
 
 Building on the experience with the open-source MajiFix CRM in Dar es Salaam and Mwanza (which our founder Kristen Tonga worked on before establishing OpenTech International), we're now expanding our focus to address the broader digital needs of water and sanitation service providers throughout Sub-Saharan Africa and beyond.
 

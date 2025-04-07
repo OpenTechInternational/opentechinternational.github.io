@@ -6,7 +6,7 @@ publishedDate: 2025-03-20  # When this was announced
 location: "Alto Minho, Northern Portugal"  # or wherever it's located
 type: "consultancy"  # or whatever type fits best: workshop, conference, training, research, consultancy, other
 image: /public/images/corujeira-dewdrops.png  # moved to activities folder
-tags: ['offgrid', 'iwm', 'plan']
+tags: ['offgrid', 'iwm', 'rural', 'plan']
 virtual: false
 registrationUrl: ""  # optional
 ---
