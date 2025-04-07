@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const initiatives = await getCollection('initiatives');
+  return initiatives.map(initiative => ({
+    params: { slug: initiative.slug },
+    props: { initiative },
+  }));
+}
+
+const { initiative } = Astro.props;
+const { Content } = await initiative.render();
+---
+
+<Layout title={`${initiative.data.title} - Open Tech International`}>
+  <article>
+    <!-- Hero Section -->
+    <div class="relative h-[60vh]">
+      <img
+        src={initiative.data.image}
+        alt={initiative.data.title}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center text-white px-4">
+          {initiative.data.logo && (
+            <img
+              src={initiative.data.logo}
+              alt={`${initiative.data.title} logo`}
+              class="h-24 mb-8 mx-auto"
+            />
+          )}
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">{initiative.data.title}</h1>
+          <p class="text-xl mb-4">{initiative.data.description}</p>
+          <div class="flex items-center justify-center gap-4">
+            <span class="px-3 py-1 bg-white/20 rounded-full text-sm">
+              {initiative.data.status || 'active'}
+            </span>
+            <span class="text-sm">
+              Last updated: {initiative.data.date ? new Date(initiative.data.date).toLocaleDateString() : 'March 20, 2024'}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container mx-auto px-4 mt-16">
+      <div class="max-w-3xl mx-auto prose prose-lg">
+        <Content />
+        <div class="mt-12 text-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+          >
+            Contact Us
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout> 

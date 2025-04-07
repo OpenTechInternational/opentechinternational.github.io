@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const { Content } = await import('../content/pages/volunteer.md');
+const page = await getCollection('pages', ({ id }) => id === 'volunteer.md');
+const metadata = page[0]?.data;
+
+// Commenting out volunteer options for now
+/*
+const volunteerOptions = [
+  {
+    title: "Technical Volunteer",
+    description: "Help develop and maintain our open-source software solutions. Skills in Python, JavaScript, or GIS are particularly valuable.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+    </svg>`
+  },
+  {
+    title: "Research Volunteer",
+    description: "Contribute to our research initiatives by analyzing data, conducting interviews, or writing reports.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+    </svg>`
+  },
+  {
+    title: "Community Volunteer",
+    description: "Help us engage with communities, organize events, or manage our social media presence.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+    </svg>`
+  }
+];
+*/
+---
+
+<Layout title={metadata?.title || 'Volunteer - Open Tech International'}>
+  <article>
+    <!-- Hero Section -->
+    <div class="relative h-[30vh]">
+      <img
+        src="/images/kenya-hells-gate-zebra.jpg"
+        alt="Volunteer"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-[#1a1a4a]/40"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center text-white px-4">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">{metadata?.title || 'Volunteer'}</h1>
+          <p class="text-lg">{metadata?.description || 'Join our team of volunteers and make a difference.'}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container mx-auto px-4 mt-16">
+      <div class="max-w-4xl mx-auto prose prose-lg">
+        <Content />
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Get Involved</h2>
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdnq4Ps4qOCYSIEUN2Y_GXnz6xjuraLzNs1OAub5wiyXIiP3g/viewform?embedded=true"
+              width="100%"
+              height="1000"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              class="w-full"
+            >
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commented Out Volunteer Options Section -->
+    <!-- <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Volunteer Opportunities</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            {volunteerOptions.map(option => (
+              <div class="bg-white rounded-lg shadow-sm p-6">
+                <div class="text-blue-600 mb-4" set:html={option.icon} />
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">{option.title}</h3>
+                <p class="text-gray-600">{option.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section> -->
+  </article>
+</Layout> 

@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const { Content } = await import('../content/pages/contact.md');
+const page = await getCollection('pages', ({ id }) => id === 'contact.md');
+const metadata = page[0]?.data;
+
+const contactInfo = [
+  {
+    title: "Email",
+    content: "contact@opentechinternational.org",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`
+  },
+  {
+    title: "Location",
+    content: "Homer, Alaska",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+    </svg>`
+  }
+];
+---
+
+<Layout title={metadata?.title || 'Contact Us - Open Tech International'}>
+  <article>
+    <!-- Hero Section -->
+    <div class="relative h-[30vh]">
+      <img
+        src="/images/kenya-roadside.png"
+        alt="Contact Us"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-blue-900/40"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center text-white px-4">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">{metadata?.title || 'Contact Us'}</h1>
+          <p class="text-lg">{metadata?.description || 'Get in touch with our team.'}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two Column Section -->
+    <div class="container mx-auto px-4 mt-12">
+      <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <!-- Content Column -->
+        <div class="prose prose-lg md:col-span-1">
+          <Content />
+        </div>
+
+        <!-- Form Column -->
+        <div class="bg-white rounded-lg shadow-sm p-6 md:col-span-2">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdnq4Ps4qOCYSIEUN2Y_GXnz6xjuraLzNs1OAub5wiyXIiP3g/viewform?embedded=true"
+            width="100%"
+            height="1000"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            class="w-full"
+          >
+            Loading…
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout> 

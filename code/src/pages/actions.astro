@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActionCard from '../components/ActionCard.astro';
+import { getCollection } from 'astro:content';
+
+const allActions = await getCollection('actions');
+const actions = allActions.sort((a, b) => b.data.eventDate.valueOf() - a.data.eventDate.valueOf());
+
+// Get unique action types for filter
+const types = [...new Set(actions.map(action => action.data.type))];
+
+// Calculate counts
+const upcomingCount = actions.filter(action => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const eventDay = new Date(action.data.eventDate);
+  eventDay.setHours(0, 0, 0, 0);
+  return eventDay >= today;
+}).length;
+
+const pastCount = actions.length - upcomingCount;
+---
+
+<Layout title="Actions & Events - Open Tech International">
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900 mb-8">Actions & Events</h1>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap gap-4 mb-8">
+        <button
+          class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-blue-100 text-blue-800"
+          data-filter="upcoming"
+        >
+          Upcoming ({upcomingCount})
+        </button>
+        <button
+          class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-600"
+          data-filter="past"
+        >
+          Past ({pastCount})
+        </button>
+        <div class="flex-grow"></div>
+        <select
+          id="type-filter"
+          class="px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 text-gray-600"
+        >
+          <option value="">All Types</option>
+          {types.map(type => (
+            <option value={type}>{type.charAt(0).toUpperCase() + type.slice(1)}</option>
+          ))}
+        </select>
+      </div>
+
+      <!-- Actions Grid -->
+      <div class="space-y-4" id="actions-grid">
+        {actions.map(action => (
+          <ActionCard
+            title={action.data.title}
+            description={action.data.description}
+            eventDate={action.data.eventDate}
+            location={action.data.location}
+            type={action.data.type}
+            virtual={action.data.virtual}
+            registrationUrl={action.data.registrationUrl}
+            slug={action.slug}
+          >
+            <a
+              href={`/actions/${action.slug}`}
+              class="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Learn more →
+            </a>
+          </ActionCard>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-12">
+        <p class="text-gray-600">No actions match your filters.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  let currentStatusFilter = 'upcoming';
+  let currentTypeFilter = '';
+
+  function updateFilters() {
+    const actions = document.querySelectorAll('#actions-grid > div');
+    const emptyState = document.getElementById('empty-state');
+    let visibleCount = 0;
+
+    actions.forEach(action => {
+      const status = action.querySelector('[class*="bg-"]')?.textContent?.toLowerCase() ?? '';
+      const type = action.querySelector('[class*="bg-"]:nth-child(2)')?.textContent?.toLowerCase() ?? '';
+      
+      const matchesStatus = currentStatusFilter === 'all' || 
+        (currentStatusFilter === 'upcoming' && (status.includes('upcoming') || status.includes('today'))) ||
+        (currentStatusFilter === 'past' && status.includes('past'));
+      
+      const matchesType = !currentTypeFilter || type === currentTypeFilter;
+
+      if (matchesStatus && matchesType) {
+        action.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        action.classList.add('hidden');
+      }
+    });
+
+    // Toggle empty state
+    emptyState?.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  // Set up filter buttons
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active state
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-100', 'text-blue-800');
+        btn.classList.add('bg-gray-100', 'text-gray-600');
+      });
+      button.classList.remove('bg-gray-100', 'text-gray-600');
+      button.classList.add('bg-blue-100', 'text-blue-800');
+
+      currentStatusFilter = button.getAttribute('data-filter') || 'all';
+      updateFilters();
+    });
+  });
+
+  // Set up type filter
+  const typeFilter = document.getElementById('type-filter');
+  typeFilter?.addEventListener('change', (e) => {
+    const target = e.target as HTMLSelectElement;
+    currentTypeFilter = target.value;
+    updateFilters();
+  });
+
+  // Initial filter
+  updateFilters();
+</script> 
