@@ -5,12 +5,10 @@ image: /images/ramani-haria-meeting.jpg
 ---
 # About Open Tech International
 
-Our mission is to develop and support fit-for-purpose solutions that empower communities worldwide to address critical challenges.
-
 ## Our Approach
 We are practical, hard-working and aim for excellence and truth-seeking in what we do. We recognize that meaningful progress is a mix of technological advancement and the simpler things in life. Connection, joy, health, and dignity guide our priorities and design choices. While we attend meticulously to technical details, we always consider how they serve fundamental human needs and fit within complex social and environmental systems. Real impact, in our experience, only happens through direct collaboration with people—with eyes and feet on the ground in the communities we serve.
 
-## Our Defitions
+## Definitions: Open Tech International
 
 ### Open
 At OpenTech International, "open" means creating and sharing knowledge and tools without unnecessary barriers. We believe that openness is a fundamental catalyst for empowerment, innovation, and collective growth. While security is a key value and proprietary information is occasionally necessary, we believe barriers to knowledge should be considered the exception rather than the default. When communities have ownership and information flows freely, trust develops naturally, misalignments become visible, and collaborative problem-solving thrives.
