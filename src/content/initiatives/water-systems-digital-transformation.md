@@ -58,7 +58,7 @@ Our collaboration begins with Kristen Tonga, our founder and initiative lead, co
 The engagement typically includes:
 * Evaluating your current technical systems
 * Identifying immediate opportunities for digital enhancement
-* Possibly implementing targeted solutions that address pressing needs
+* Implementing targeted solutions that address pressing needs
 
 Partners who join during this foundational research phase will help shape our development roadmap and receive priority support as we move into implementation.
 
