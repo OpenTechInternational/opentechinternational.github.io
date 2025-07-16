@@ -2,7 +2,7 @@
   "members": [
     {
       "name": "Kristen Tonga",
-      "role": "President & Executive Director",
+      "role": "Secretary & Executive Director",
       "bio": "Kristen has worked in start-ups and enterprise teams in Silicon Alley, Silicon Valley, and sub-Saharan Africa. She has a passion for building teams and products that are both effective and ethical.",
       "image": "/team/kristen-tonga.jpg",
       "linkedin": "https://linkedin.com/in/kristentonga",
@@ -10,7 +10,7 @@
     },
     {
       "name": "Ivan Gayton",
-      "role": "Board Member",
+      "role": "Vice President, Board Member",
       "bio": "Ivan brings extensive humanitarian expertise from his work with Médecins Sans Frontières (MSF) and the Humanitarian OpenStreetMap Team (HOT). His background in both field operations and on-the-ground, fit-for-purpose technology provides valuable insight.",
       "image": "/team/ivan-gayton.jpg",
       "linkedin": "https://www.linkedin.com/in/ivan-gayton-a6081b29/",
@@ -19,7 +19,7 @@
     },
     {
       "name": "Joshua Oreman",
-      "role": "Board Member",
+      "role": "Treasurer, Board Member",
       "bio": "With deep technical expertise, Josh brings powerful insights.",
       "image": "/team/joshua-oreman.jpg",
       "github": "https://github.com/oremanj",
@@ -27,7 +27,7 @@
     },
     {
       "name": "Eduard Bogel",
-      "role": "Board Member",
+      "role": "President, Board Member",
       "bio": "Bogel Enterprises, Eduards company, provides IT and digital marketing consultation to small and midsize businesses to optimize IT infrastructure, enhance online presence, and achieve strategic goals.",
       "image": "/team/eduard-bogel.jpg",
       "linkedin": "https://www.linkedin.com/in/ebogel/",
