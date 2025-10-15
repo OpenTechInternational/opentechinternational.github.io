@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ActionCard from '../components/ActionCard.astro';
+import DonateButton from '../components/DonateButton.astro';
+import { SITE_CONFIG } from '../config/site';
 import { getCollection } from 'astro:content';
 
 const allActions = await getCollection('actions');
@@ -151,12 +153,7 @@ const latestActions = allActions
 					Support our work by donating to specific initiatives or becoming a volunteer.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="/donate"
-						class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-					>
-						Donate Now
-					</a>
+				<DonateButton />
 					<a
 						href="/contact"
 						class="px-8 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
@@ -197,7 +194,7 @@ const latestActions = allActions
 				</iframe>
 				<div class="flex justify-center space-x-6 mt-12">
 					<a
-						href="https://linkedin.com/company/opentechinternational"
+						href={SITE_CONFIG.social.linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-gray-400 hover:text-blue-600 transition-colors"
@@ -208,7 +205,7 @@ const latestActions = allActions
 						</svg>
 					</a>
 					<a
-						href="https://twitter.com/opentechintl"
+						href={SITE_CONFIG.social.twitter}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-gray-400 hover:text-blue-400 transition-colors"
@@ -219,7 +216,7 @@ const latestActions = allActions
 						</svg>
 					</a>
 					<a
-						href="https://github.com/opentechinternational"
+						href={SITE_CONFIG.social.github}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-gray-400 hover:text-gray-900 transition-colors"

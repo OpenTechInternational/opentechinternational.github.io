@@ -1,0 +1,42 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+interface Props {
+  variant?: 'primary' | 'secondary';
+  size?: 'default' | 'large';
+  class?: string;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'default',
+  class: className = ''
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center rounded-lg transition-colors font-medium text-center';
+
+const variantClasses = {
+  primary: 'bg-blue-600 text-white hover:bg-blue-700',
+  secondary: 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+};
+
+const sizeClasses = {
+  default: 'px-8 py-3',
+  large: 'px-8 py-3 text-lg font-semibold'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+---
+
+<a
+  href={SITE_CONFIG.donateUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={classes}
+>
+  Donate Now
+  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</a>
+

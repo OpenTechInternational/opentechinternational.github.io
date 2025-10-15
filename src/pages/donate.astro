@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DonateButton from '../components/DonateButton.astro';
 import { getCollection } from 'astro:content';
 
 const { Content } = await import('../content/pages/donate.md');
@@ -53,20 +54,12 @@ const donationOptions = [
       </div>
     </div>
 
-    <!-- Coming Soon Message -->
+    <!-- Donate Button -->
     <div class="container mx-auto px-4 mt-16">
       <div class="max-w-4xl mx-auto text-center bg-blue-50 p-8 rounded-lg">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Donation Options Coming Soon!</h2>
-        <p class="text-gray-700 mb-8">We are currently completing our filing process. Please check back soon for ways to support our mission.</p>
-        <a
-          href="/initiatives/water-systems-digital-transformation"
-          class="inline-flex items-center px-8 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-        >
-          Learn About Our Water Systems Initiative
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Support Our Mission</h2>
+        <p class="text-gray-700 mb-8">Your donation helps us develop and promote technology solutions that empower communities worldwide.</p>
+        <DonateButton size="large" />
       </div>
     </div>
 
