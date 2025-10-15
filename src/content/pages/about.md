@@ -14,7 +14,7 @@ We are practical, hard-working and aim for excellence and truth-seeking in what 
 At OpenTech International, "open" means creating and sharing knowledge and tools without unnecessary barriers. We believe that openness is a fundamental catalyst for empowerment, innovation, and collective growth. While security is a key value and proprietary information is occasionally necessary, we believe barriers to knowledge should be considered the exception rather than the default. When communities have ownership and information flows freely, trust develops naturally, misalignments become visible, and collaborative problem-solving thrives.
 
 ### Technology
-We define technology broadly—from physical devices and methodical systems to social coordination methods and artistic mediums. At its core, technology is purposeful design that solves problems and extends human capabilities. While software development is our primary expertise, we embrace technology's full spectrum, often combining new and traditional approaches.
+We define technology broadly—from physical devices and methodical systems to social coordination methods and artistic mediums. At its core, technology is purposeful design that solves problems and extends human capabilities. While software development is our primary expertise, we embrace technology's full spectrum, often combining cutting-edge innovation, traditional approaches, and nature-inspired systems.
 
 This perspective guides our project selection. Though we primarily address serious challenges, we occasionally pursue projects that simply bring beauty or delight to communities, recognizing that flourishing societies need both practical solutions and nourishment for the human spirit.
 
