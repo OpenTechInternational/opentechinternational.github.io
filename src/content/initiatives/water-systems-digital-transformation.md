@@ -2,7 +2,7 @@
 title: Water Systems Digital Transformation Initiative
 description: Connecting utilities in sub-Saharan Africa with the tools they need to thrive
 status: active
-image: /images/oti-water-hero.png
+image: /images/oti-water-hero.svg
 logo: /images/oti-water-logo-white.svg
 date: 2025-04-07
 ---
@@ -63,7 +63,7 @@ The engagement typically includes:
 Partners who join during this foundational research phase will help shape our development roadmap and receive priority support as we move into implementation.
 
 ## Beyond Water: A Holistic Approach
-<img style="float: right; height: 500px" src="/images/digital-water-hippo.png">
+<img style="float: right; height: 500px" src="/images/digital-water-hippo.svg">
 While water and sanitation service providers remain our focus, we recognize that effective solutions often cross traditional boundaries. Our "Wider than Water" mindset keeps us alert to complementary challenges and opportunities that may arise during our research.
 
 ## Join Us on the Journey

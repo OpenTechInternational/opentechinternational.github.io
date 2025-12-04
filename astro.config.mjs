@@ -10,5 +10,15 @@ export default defineConfig({
   publicDir: './public',
   build: {
     assets: '_assets'
+  },
+  image: {
+    // Optimized for low-connectivity environments
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    // Generate modern formats with quality optimized for bandwidth
+    format: ['webp', 'avif'],
+    // Cache images for better performance
+    cacheDir: './.astro/image-cache'
   }
 });

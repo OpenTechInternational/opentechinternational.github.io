@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import kenyaRoadsideImage from '../assets/images/kenya-roadside.png';
 
 const { Content } = await import('../content/pages/contact.md');
 const page = await getCollection('pages', ({ id }) => id === 'contact.md');
@@ -29,10 +31,15 @@ const contactInfo = [
   <article>
     <!-- Hero Section -->
     <div class="relative h-[30vh]">
-      <img
-        src="/images/kenya-roadside.png"
+      <Image
+        src={kenyaRoadsideImage}
         alt="Contact Us"
         class="w-full h-full object-cover"
+        widths={[640, 1024, 1920]}
+        sizes="100vw"
+        loading="eager"
+        format="webp"
+        quality={75}
       />
       <div class="absolute inset-0 bg-blue-900/40"></div>
       <div class="absolute inset-0 flex items-center justify-center">
